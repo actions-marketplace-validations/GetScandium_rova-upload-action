@@ -36,6 +36,7 @@ jobs:
           workspace-id: ${{ secrets.ROVA_WORKSPACE_ID }}
           app-path: 'app/build/outputs/apk/release/app-release.apk'
           platform: 'android'
+          parent-app-id: 'uuid of app on rova'
 ```
 
 ### Method 2: Using an App URL (S3/GCP/Firebase Link)
@@ -49,6 +50,7 @@ If your CI pipeline already uploads your build to a bucket that generates a publ
           workspace-id: ${{ secrets.ROVA_WORKSPACE_ID }}
           app-url: ${{ steps.upload_to_s3.outputs.file_url }}
           platform: 'android'
+          parent-app-id: 'uuid of app on rova'
 ```
 
 ### Building this Action (For Contributors)
