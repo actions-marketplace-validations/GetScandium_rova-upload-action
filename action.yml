@@ -1,0 +1,35 @@
+name: 'Rova AI Test Trigger'
+description: 'Upload your Android/iOS build to Rova to automatically trigger AI-driven QA tests.'
+author: 'Rova'
+
+inputs:
+  api-token:
+    description: 'Your Rova API Token.'
+    required: true
+  workspace-id:
+    description: 'The Rova Workspace ID.'
+    required: true
+  parent-app-id:
+    description: 'The Rova App ID to attach this build to (optional if repository is matched)'
+    required: true
+  api-base-url:
+    description: 'The base URL for Rova API (useful for testing against staging or local environments)'
+    required: false
+    default: 'https://mobileapi.rova.qa/api'
+  app-path:
+    description: 'The local path to the compiled .apk or .ipa file (Use this OR app-url).'
+    required: false
+  app-url:
+    description: 'A publicly accessible URL where Rova can download the .apk or .ipa directly (Use this OR app-path).'
+    required: false
+  platform:
+    description: 'Target platform: "android" or "ios"'
+    required: true
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'purple'
